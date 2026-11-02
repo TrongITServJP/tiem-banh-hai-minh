@@ -1,0 +1,4 @@
+# Ảnh cắt từ video tham khảo (của trang web khác) — không đưa lên repo
+/*.png
+node_modules/
+.vercel/

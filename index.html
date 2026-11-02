@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Tiệm Bánh Hải Minh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="stage">
+
+  <!-- MÀN HÌNH CHÍNH -->
+  <section id="scr-title" class="screen active">
+    <div class="awning"></div>
+    <div id="title-deco"></div>
+    <div class="title-card">
+      <small class="welcome">Chào mừng đến</small>
+      <h1 class="serif" id="title-name"></h1>
+      <p class="tagline" id="title-tagline"></p>
+      <div class="menu">
+        <button class="btn big" data-act="play">▶ Chơi ngay</button>
+        <div class="row">
+          <button class="btn ghost" data-act="upgrades">🏪 Tiệm của bạn</button>
+          <button class="btn ghost" data-act="help">❓ Cách chơi</button>
+        </div>
+      </div>
+      <div class="title-stats" id="title-stats"></div>
+    </div>
+    <button class="reset-btn" data-act="reset">Chơi lại từ đầu</button>
+  </section>
+
+  <!-- BẢN ĐỒ NGÀY -->
+  <section id="scr-map" class="screen">
+    <header class="topbar">
+      <button class="btn small ghost" data-act="title">◀ Menu</button>
+      <h2 class="serif">Chọn ngày làm việc</h2>
+      <div class="wallet" id="map-wallet"></div>
+    </header>
+    <div id="day-grid"></div>
+    <div class="map-footer">
+      <button class="btn ghost" data-act="upgrades">🏪 Tiệm của bạn</button>
+    </div>
+  </section>
+
+  <!-- TIỆM CỦA BẠN: nâng cấp / trang trí / thành tích -->
+  <section id="scr-upgrades" class="screen">
+    <header class="topbar">
+      <button class="btn small ghost" data-act="back">◀ Quay lại</button>
+      <h2 class="serif">Tiệm của bạn</h2>
+      <div class="wallet" id="upg-wallet"></div>
+    </header>
+    <div class="tabs">
+      <button class="tab active" data-act="tab" data-tab="upg">🛠 Nâng cấp</button>
+      <button class="tab" data-act="tab" data-tab="theme">🎨 Trang trí</button>
+      <button class="tab" data-act="tab" data-tab="ach">🏆 Thành tích <span id="ach-count"></span></button>
+    </div>
+    <div id="upg-grid" class="tab-pane"></div>
+    <div id="theme-grid" class="tab-pane" hidden></div>
+    <div id="ach-grid" class="tab-pane" hidden></div>
+  </section>
+
+  <!-- TRONG GAME -->
+  <section id="scr-game" class="screen">
+    <header id="hud">
+      <div class="hud-day"><small id="hud-dayn">NGÀY 1</small><b id="hud-title"></b></div>
+      <div class="hud-clock" id="hud-clock"><span id="ck-h">08</span><em>:</em><span id="ck-m">00</span></div>
+      <div class="hud-goal">
+        <div class="goal-bar"><div id="goal-fill"></div><span class="gm"></span><span class="gm"></span><span class="gm"></span></div>
+        <div class="goal-text" id="goal-text"></div>
+      </div>
+      <div class="hud-hearts" id="hud-hearts"></div>
+      <div class="hud-combo" id="hud-combo"></div>
+      <div class="hud-btns">
+        <button class="icon-btn" data-act="mute" id="btn-mute" title="Tắt/bật âm thanh">🔊</button>
+        <button class="icon-btn" data-act="pause" title="Tạm dừng">⏸</button>
+      </div>
+    </header>
+
+    <div id="street">
+      <div id="counter-slots"></div>
+      <div class="counter-top"></div>
+      <div id="cat-layer"></div>
+    </div>
+
+    <div id="case" class="panel">
+      <div class="case-roof"></div>
+      <div id="mission-chip" hidden></div>
+      <div id="case-items"></div>
+    </div>
+
+    <div id="oven" class="panel"></div>
+
+    <div id="box-wrap" data-drag="box">
+      <div class="box-title">Hộp bánh</div>
+      <div id="box"></div>
+      <div id="box-sauce"></div>
+      <div id="box-ribbon" hidden><div class="bow"></div></div>
+      <div id="box-info"></div>
+    </div>
+
+    <div id="extras" class="panel"></div>
+
+    <div id="register" class="panel">
+      <div class="reg-art" id="reg-art"></div>
+      <div class="reg-right">
+        <div class="reg-tag"><i class="ci"></i><span id="reg-money">0</span></div>
+        <div class="reg-btns">
+          <button class="btn small ghost" data-act="clear">🗑 Đổ hộp</button>
+          <button class="btn small gold" data-act="bell" id="btn-bell">🔔 Chuông <span id="bell-n">1</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div id="hint" hidden></div>
+    <div id="banner"></div>
+  </section>
+
+  <div id="toast"></div>
+  <div id="fx"></div>
+  <div id="modal" hidden><div class="modal-card" id="modal-card"></div></div>
+</div>
+
+<div id="rotate-hint">📱 Xoay ngang điện thoại để chơi vui hơn nhé!</div>
+
+<script src="js/data.js"></script>
+<script src="js/art.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
