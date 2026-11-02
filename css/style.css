@@ -364,7 +364,7 @@ button { font: inherit; cursor: pointer; color: inherit; }
 
 /* gợi ý + thông báo */
 #hint {
-  position: absolute; left: 50%; top: 270px; transform: translateX(-50%); z-index: 8;
+  position: absolute; left: 50%; top: 236px; transform: translateX(-50%); z-index: 8;
   background: #fff; color: var(--berry); font-weight: 700; font-size: 18px;
   padding: 6px 22px; border-radius: 999px; box-shadow: 0 6px 18px rgba(140, 29, 64, .25);
   border: 3px solid var(--gold); white-space: nowrap; animation: hintBob 1.6s ease-in-out infinite;
